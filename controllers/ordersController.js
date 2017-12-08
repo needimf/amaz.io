@@ -2,7 +2,7 @@ const Order = require('../models/order');
 const Product = require('../models/product');
 
 function getProducts(req, res) {
-  Products.find({}, (err, products) => {
+  Product.find({}, (err, products) => {
     res.json(products);
   });
 }
