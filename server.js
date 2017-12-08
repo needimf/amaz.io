@@ -18,6 +18,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 // API routes
+app.use('/api', require('./routes/api'));
 
 // Client-side catch all route
 app.get('/*', (req, res) => {
