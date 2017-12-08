@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const product = require('./product');
+const Product = require('./product');
 
 const orderSchema = new Schema({
-  products: [product]
+  products: [{ type: Schema.Types.ObjectId, ref: 'Product'}]
   },
   {
     timestamps: true
