@@ -5,6 +5,7 @@ import {
   Switch,
   Route
 } from 'react-router-dom';
+import HomePage from '../HomePage/HomePage';
 
 class App extends Component {
   constructor(props) {
@@ -29,7 +30,10 @@ class App extends Component {
       <div className="App">
         <NavBar />
         <Switch>
-          <Route exact path="/" />
+          <Route exact path="/" render={(props) =>
+            <HomePage />
+            }
+          />
           <Route exact path="/catalogue" />
           <Route exact path="/checkout" />
           <Route exact path="/order-confirmation" />
