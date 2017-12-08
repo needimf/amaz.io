@@ -12,7 +12,7 @@ app.use(logger('dev'));
 
 // Configure both serve-favicon and static middlewares
 // to serve from the production build folder
-app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
+// app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
