@@ -6,13 +6,15 @@ import {
   Route
 } from 'react-router-dom';
 import HomePage from '../HomePage/HomePage';
+import CataloguePage from '../CataloguePage/CataloguePage';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       products: [],
-      order: {}
+      order: {},
+      search: ''
     }
   }
 
@@ -30,11 +32,19 @@ class App extends Component {
       <div className="App">
         <NavBar />
         <Switch>
-          <Route exact path="/" render={(props) =>
+          <Route exact path="/" render={() =>
             <HomePage />
             }
           />
-          <Route exact path="/catalogue" />
+          <Route exact path="/catalogue" render={(props) => 
+            <CataloguePage
+              {...props}
+              products={this.state.products}
+              order={this.state.order} 
+              search={this.state.search}
+            />
+            }
+          />
           <Route exact path="/checkout" />
           <Route exact path="/order-confirmation" />
         </Switch>
