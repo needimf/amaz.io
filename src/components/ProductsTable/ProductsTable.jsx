@@ -6,7 +6,7 @@ const ProductsTable = (props) => {
 
   return (
     <div>
-      <table className="table">
+      <table className="table table-hover">
         <thead>
           <tr>
             <th>Name</th>

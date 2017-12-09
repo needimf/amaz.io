@@ -18,6 +18,12 @@ class App extends Component {
     }
   }
 
+  // Event Listeners
+
+  updateSearch = (e) => {
+    this.setState({search: e.target.value})
+  }
+
   // Lifecycle methods
   componentDidMount() {
     let findProducts = fetch('/api/products').then(res => res.json());
@@ -42,6 +48,7 @@ class App extends Component {
               products={this.state.products}
               order={this.state.order} 
               search={this.state.search}
+              updateSearch={this.updateSearch}
             />
             }
           />
