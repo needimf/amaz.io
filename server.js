@@ -4,7 +4,7 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 
-const app = express();
+let app = express();
 
 require('./config/database');
 

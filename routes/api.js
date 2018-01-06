@@ -5,8 +5,8 @@ const orderCtrl = require('../controllers/ordersController');
 router.get('/products', orderCtrl.getProducts);
 router.get('/order', orderCtrl.getOrder);
 
-router.post('/addProduct', orderCtrl.addProduct);
-router.post('/removeProduct', orderCtrl.removeProduct);
+router.post('/add-product', orderCtrl.addProduct);
+router.post('/remove-product', orderCtrl.removeProduct);
 
 router.post('/checkout', orderCtrl.checkout)
 

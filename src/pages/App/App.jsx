@@ -24,6 +24,16 @@ class App extends Component {
     this.setState({search: e.target.value})
   }
 
+  // addProduct = (e) => {
+  //   fetch('/api/add-product', {
+  //     method:'POST',
+  //     headers: new Headers({'Content-Type': 'application/json'}),
+  //     body: JSON.stringify({productId: e.target.value.slice(0, e.target.value.indexOf('~')), orderId: e.target.value.slice(e.target.value.indexOf('~') + 1)})
+  //   }).then(res => res.json()).then(order => {
+  //     this.setState({order})
+  //   })
+  // }
+
   // Lifecycle methods
   componentDidMount() {
     let findProducts = fetch('/api/products').then(res => res.json());

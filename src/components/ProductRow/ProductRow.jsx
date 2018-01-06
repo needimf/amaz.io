@@ -6,7 +6,19 @@ const ProductRow = (props) => {
       <td>{props.product.name}</td>
       <td>{"$" + props.product.price.toString()}</td>
       <td>{props.product.sku}</td>
-      <td>{props.product.description}</td>
+      <td>
+        <div className="container">
+          <div className="row">
+            <p className="col-9">{props.product.description}</p>
+            <button className="col-1 btn mr-1">
+              +
+            </button>
+            <button className="col-1 btn">
+              -
+            </button>
+          </div>
+        </div>
+      </td>
     </tr>
   )
 }

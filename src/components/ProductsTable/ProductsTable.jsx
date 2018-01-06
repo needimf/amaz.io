@@ -2,7 +2,7 @@ import React from 'react';
 import ProductRow from '../ProductRow/ProductRow';
 
 const ProductsTable = (props) => {
-  let filteredProducts = props.products.filter(product => product.name.includes(props.search));
+  let filteredProducts = props.products.filter(product => product.name.includes(props.search.toLowerCase()));
 
   return (
     <div>

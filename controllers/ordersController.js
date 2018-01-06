@@ -14,7 +14,11 @@ function getOrder(req, res) {
 }
 
 function addProduct(req, res) {
-
+  // let productId = req.body.productId
+  // let orderId = req.body.orderId
+  // Order.findOneAndUpdate({_id: orderId}, { $set : {products: }},(err, order) => {
+  //   order.products.push(mongoose.Types.ObjectId(productId))
+  // })
 }
 
 function removeProduct(req, res) {
