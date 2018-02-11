@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import NavBar from './../../components/NavBar/NavBar';
 import {
   Switch,
   Route
 } from 'react-router-dom';
+import AMAZIOAPI from './../../api/amazioAPI';
+import NavBar from './../../components/NavBar/NavBar';
 import HomePage from '../HomePage/HomePage';
 import CataloguePage from '../CataloguePage/CataloguePage';
 
@@ -36,10 +37,8 @@ class App extends Component {
 
   // Lifecycle methods
   componentDidMount() {
-    let findProducts = fetch('/api/products').then(res => res.json());
-    let findOrder = fetch('/api/order').then(res => res.json());
-    Promise.all([findProducts, findOrder]).then(data => {
-      this.setState({products: data[0], order: data[1]})
+    AMAZIOAPI.fetchProductsAndOrder().then(data => {
+      this.setState({products: data[0], order: data[1]});
     });
   }
 

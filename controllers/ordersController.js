@@ -9,8 +9,8 @@ function getProducts(req, res) {
 
 function getOrder(req, res) {
   Order.findOne({}).populate('products').exec((err, order) => {
-      res.json(order);
-    });
+    res.json(order);
+  });
 }
 
 function addProduct(req, res) {
