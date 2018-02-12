@@ -16,7 +16,14 @@ const ProductsTable = (props) => {
           </tr>
         </thead>
         <tbody>
-          {filteredProducts.map(product => <ProductRow key={product.sku} product={product} order={props.order} />)}
+          {filteredProducts.map(product => 
+            <ProductRow 
+              key={product.sku}
+              product={product}
+              order={props.order}
+              addProduct={props.addProduct}
+            />
+          )}
         </tbody>
       </table>
     </div>

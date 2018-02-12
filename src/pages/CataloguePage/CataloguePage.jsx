@@ -7,16 +7,19 @@ const CataloguePage = (props) => {
   return (
     <div>
       <div>
+        <br></br>
         <SearchForm 
         search={props.search}
         updateSearch={props.updateSearch}
         />
       </div>
+      <br></br>
       <div>
         <ProductsTable 
         search={props.search}
         products={props.products}
         order={props.order}
+        addProduct={props.addProduct}
         />
       </div>
     </div>

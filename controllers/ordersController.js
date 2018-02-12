@@ -14,11 +14,25 @@ function getOrder(req, res) {
 }
 
 function addProduct(req, res) {
-  // let productId = req.body.productId
-  // let orderId = req.body.orderId
-  // Order.findOneAndUpdate({_id: orderId}, { $set : {products: }},(err, order) => {
-  //   order.products.push(mongoose.Types.ObjectId(productId))
-  // })
+  Product.findById(req.body.productId, (err, product) => {
+    if (err) {
+      console.log(err);
+    } else {
+      Order.findById(req.body.orderId, (err, order) => {
+        order.products.push(product._id);
+        order.save((err) => {
+          if (err) {
+            return res.json(500, {
+              error: 'Cannot save the order.'
+            })
+          }
+          order.populate('products', (err, order) => {
+              res.json(order);
+            });
+        });
+      });
+    }
+  });
 }
 
 function removeProduct(req, res) {

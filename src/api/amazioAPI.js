@@ -23,6 +23,21 @@ const AMAZIOAPI = {
     });
 
     return Promise.all([getProducts, getOrder]).catch(err => console.log(err));
+  },
+
+  addProductToOrder: function(productId, orderId) {
+    let URI = '/api/add-product';
+    return fetch(URI, {
+      method: 'POST',
+      headers: new Headers({'Content-Type': 'application/json'}),
+      body: JSON.stringify({productId, orderId})
+    }).then(res => {
+      if(res.ok) {
+        return res.json();
+      } else {
+        throw new Error('Response from \'/api/add-product\' not ok.');
+      }
+    }).catch(err => undefined);
   }
 }
 

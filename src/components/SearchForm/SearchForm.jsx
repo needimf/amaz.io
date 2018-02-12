@@ -6,7 +6,8 @@ const SearchForm = (props) => {
       <input 
         type="text" 
         onChange={(e) => {props.updateSearch(e)}} 
-        value={props.search} 
+        value={props.search}
+        placeholder="Search for a product"
       />
     </div>
   )
