@@ -16,7 +16,10 @@ const ProductRow = (props) => {
             >
               +
             </button>
-            <button className="col-1 btn">
+            <button 
+              className="col-1 btn"
+              onClick={() => {props.removeProduct(props.product._id, props.order._id)}}
+            >
               -
             </button>
           </div>

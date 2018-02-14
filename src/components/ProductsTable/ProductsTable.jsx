@@ -22,6 +22,7 @@ const ProductsTable = (props) => {
               product={product}
               order={props.order}
               addProduct={props.addProduct}
+              removeProduct={props.removeProduct}
             />
           )}
         </tbody>

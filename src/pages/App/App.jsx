@@ -32,6 +32,13 @@ class App extends Component {
       });
   }
 
+  removeProduct = (productId, orderId) => {
+    AMAZIOAPI.removeProductFromOrder(productId, orderId)
+      .then(order => {
+        this.setState({order});
+      });
+  }
+
   // Lifecycle methods
   componentDidMount() {
     AMAZIOAPI.fetchProductsAndOrder().then(data => {
@@ -56,6 +63,7 @@ class App extends Component {
               search={this.state.search}
               updateSearch={this.updateSearch}
               addProduct={this.addProduct}
+              removeProduct={this.removeProduct}
             />
             }
           />

@@ -38,6 +38,21 @@ const AMAZIOAPI = {
         throw new Error('Response from \'/api/add-product\' not ok.');
       }
     }).catch(err => undefined);
+  },
+
+  removeProductFromOrder: function(productId, orderId) {
+    let URI = '/api/remove-product';
+    return fetch(URI, {
+      method: 'POST',
+      headers: new Headers({'Content-Type': 'application/json'}),
+      body: JSON.stringify({productId, orderId})
+    }).then(res => {
+      if(res.ok) {
+        return res.json();
+      } else {
+        throw new Error('Response from \'/api/remove-product\' not ok.');
+      }
+    }).catch(err => undefined);
   }
 }
 

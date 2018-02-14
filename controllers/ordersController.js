@@ -36,7 +36,20 @@ function addProduct(req, res) {
 }
 
 function removeProduct(req, res) {
-
+  Order.findById(req.body.orderId, (err, order) => {
+    let productIndex = order.products.indexOf(req.body.productId);
+    order.products.splice(productIndex, 1);
+    order.save((err) => {
+      if (err) {
+        return res.json(500, {
+          error: 'Cannot save the order.'
+        })
+      }
+      order.populate('products', (err, order) => {
+          res.json(order);
+        });
+    });
+  })
 }
 
 function checkout(req, res) {
