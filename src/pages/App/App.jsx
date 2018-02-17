@@ -8,6 +8,7 @@ import AMAZIOAPI from './../../api/amazioAPI';
 import NavBar from './../../components/NavBar/NavBar';
 import HomePage from '../HomePage/HomePage';
 import CataloguePage from '../CataloguePage/CataloguePage';
+import CheckoutPage from '../CheckoutPage/CheckoutPage';
 
 class App extends Component {
   constructor(props) {
@@ -67,7 +68,15 @@ class App extends Component {
             />
             }
           />
-          <Route exact path="/checkout" />
+          <Route exact path="/checkout" render={(props) => 
+            <CheckoutPage 
+              {...props}
+              order={this.state.order}
+              addProduct={this.addProduct}
+              removeProduct={this.removeProduct}
+            />
+            }
+          />
           <Route exact path="/order-confirmation" />
         </Switch>
       </div>

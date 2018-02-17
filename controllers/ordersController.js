@@ -8,8 +8,14 @@ function getProducts(req, res) {
 }
 
 function getOrder(req, res) {
-  Order.findOne({}).populate('products').exec((err, order) => {
-    res.json(order);
+  Order.findOne({}).populate('products.product').exec((err, order) => {
+    if (order) {
+      res.json(order);
+    } else {
+      Order.create({}, (err, order) => {
+        res.json(order);
+      })
+    }
   });
 }
 
@@ -19,14 +25,19 @@ function addProduct(req, res) {
       console.log(err);
     } else {
       Order.findById(req.body.orderId, (err, order) => {
-        order.products.push(product._id);
+        let indexInCart = order.products.findIndex(cartProduct => cartProduct.product.toString() === product._id.toString());
+        if (indexInCart !== -1) {
+          order.products[indexInCart].quantity += 1;
+        } else {
+          order.products.push({product: product._id, quantity: 1});
+        }
         order.save((err) => {
           if (err) {
             return res.json(500, {
               error: 'Cannot save the order.'
             })
           }
-          order.populate('products', (err, order) => {
+          order.populate('products.product', (err, order) => {
               res.json(order);
             });
         });

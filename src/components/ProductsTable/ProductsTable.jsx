@@ -5,9 +5,9 @@ const ProductsTable = (props) => {
   let filteredProducts = props.products.filter(product => product.name.includes(props.search.toLowerCase()));
 
   return (
-    <div>
+    <div className="col-12">
       <table className="table table-hover">
-        <thead>
+        <thead className='thead-dark'>
           <tr>
             <th>Name</th>
             <th>Price</th>

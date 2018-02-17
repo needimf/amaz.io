@@ -5,16 +5,14 @@ import ProductsTable from '../../components/ProductsTable/ProductsTable';
 
 const CataloguePage = (props) => {
   return (
-    <div>
-      <div>
-        <br></br>
+    <div className='container'>
+      <div className="row justify-content-center">
         <SearchForm 
         search={props.search}
         updateSearch={props.updateSearch}
         />
       </div>
-      <br></br>
-      <div>
+      <div className="row">
         <ProductsTable 
         search={props.search}
         products={props.products}
